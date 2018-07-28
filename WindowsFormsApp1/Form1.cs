@@ -32,6 +32,11 @@ namespace WindowsFormsApp1
         
         private void button1_Click(object sender, EventArgs e)
         {
+
+            // Todo esto se resueve con un :
+            // Si esta todo ok, i tiene el valor entero y devuleve true, si no, devuelve false.
+            int i = 0;
+            bool result = int.TryParse(this.edadTextbox.Text, out i);
             /*
             // No me esta andando, pero deberia tirar un cartel si no era un numero
             try
@@ -51,20 +56,29 @@ namespace WindowsFormsApp1
             // Actualiza la tabla que se ve con lo que esta en la base
             this.personasTableAdapter.Fill(this.database1DataSet.Personas);
         }
-        /*
+
         private void botonBorrar_Click(object sender, EventArgs e)
         {
-            foreach(DataRowView row in this.dataGridView1.SelectedRows) {
-                // ESTO TODAVIA NO ANDA D:
-                string sval = (row.Row)["id"] as string;
-                this.personasTableAdapter.Delete(int.Parse(sval), null, null, null);
-                this.personasTableAdapter.Fill(this.database1DataSet.Personas);
-            }
-        }
+            if (string.IsNullOrEmpty(this.idTextBox.Text)) {
+                Console.WriteLine("Todo bien");
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            this.database1DataSet.Personas.
-        }*/
+            }
+         Console.WriteLine("El id no es numerico o no existe");
+        }
+        /*
+private void botonBorrar_Click(object sender, EventArgs e)
+{
+   foreach(DataRowView row in this.dataGridView1.SelectedRows) {
+       // ESTO TODAVIA NO ANDA D:
+       string sval = (row.Row)["id"] as string;
+       this.personasTableAdapter.Delete(int.Parse(sval), null, null, null);
+       this.personasTableAdapter.Fill(this.database1DataSet.Personas);
+   }
+}
+
+private void textBox1_TextChanged(object sender, EventArgs e)
+{
+   this.database1DataSet.Personas.
+}*/
     }
 }

@@ -42,7 +42,12 @@
             this.apellidoTextbox = new System.Windows.Forms.TextBox();
             this.edadTextbox = new System.Windows.Forms.TextBox();
             this.botonBorrar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
@@ -104,18 +109,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(713, 415);
+            this.button1.Location = new System.Drawing.Point(330, 446);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
-            this.button1.Text = "+";
+            this.button1.Text = "Crear";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // nameTextbox
             // 
             this.nameTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personasBindingSource, "Nombre", true));
-            this.nameTextbox.Location = new System.Drawing.Point(12, 415);
+            this.nameTextbox.Location = new System.Drawing.Point(12, 447);
             this.nameTextbox.Name = "nameTextbox";
             this.nameTextbox.Size = new System.Drawing.Size(100, 20);
             this.nameTextbox.TabIndex = 2;
@@ -123,7 +128,7 @@
             // apellidoTextbox
             // 
             this.apellidoTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personasBindingSource, "Apellido", true));
-            this.apellidoTextbox.Location = new System.Drawing.Point(119, 415);
+            this.apellidoTextbox.Location = new System.Drawing.Point(118, 447);
             this.apellidoTextbox.Name = "apellidoTextbox";
             this.apellidoTextbox.Size = new System.Drawing.Size(100, 20);
             this.apellidoTextbox.TabIndex = 3;
@@ -131,35 +136,84 @@
             // edadTextbox
             // 
             this.edadTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personasBindingSource, "Edad", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "0", "N0"));
-            this.edadTextbox.Location = new System.Drawing.Point(226, 415);
+            this.edadTextbox.Location = new System.Drawing.Point(224, 447);
             this.edadTextbox.Name = "edadTextbox";
             this.edadTextbox.Size = new System.Drawing.Size(100, 20);
             this.edadTextbox.TabIndex = 4;
             // 
             // botonBorrar
             // 
-            this.botonBorrar.Location = new System.Drawing.Point(632, 415);
+            this.botonBorrar.Location = new System.Drawing.Point(713, 447);
             this.botonBorrar.Name = "botonBorrar";
             this.botonBorrar.Size = new System.Drawing.Size(75, 23);
             this.botonBorrar.TabIndex = 5;
-            this.botonBorrar.Text = "-";
+            this.botonBorrar.Text = "Eliminar";
             this.botonBorrar.UseVisualStyleBackColor = true;
-            //this.botonBorrar.Click += new System.EventHandler(this.botonBorrar_Click);
+            this.botonBorrar.Click += new System.EventHandler(this.botonBorrar_Click);
             // 
-            // textBox1
+            // idTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(526, 415);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
-            //this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.idTextBox.Location = new System.Drawing.Point(531, 448);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(100, 20);
+            this.idTextBox.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 431);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Nombre";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(118, 431);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Apellido";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(224, 431);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Edad";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(528, 432);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(16, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Id";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(637, 447);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Editar";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(800, 479);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.botonBorrar);
             this.Controls.Add(this.edadTextbox);
             this.Controls.Add(this.apellidoTextbox);
@@ -192,7 +246,12 @@
         private System.Windows.Forms.TextBox apellidoTextbox;
         private System.Windows.Forms.TextBox edadTextbox;
         private System.Windows.Forms.Button botonBorrar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button2;
     }
 }
 

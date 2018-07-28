@@ -40,8 +40,8 @@ namespace WindowsFormsApp1
             if (result == false)
             {
                 MessageBox.Show("BOLUDO", "La edad tiene que ser un número! JEROPARDI!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
                 return;
+            }
             // Agrega una fila nueva a la base
             this.personasTableAdapter.Insert(this.nameTextbox.Text, this.apellidoTextbox.Text, int.Parse(this.edadTextbox.Text));
             // Actualiza la tabla que se ve con lo que esta en la base

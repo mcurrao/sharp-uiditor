@@ -32,8 +32,6 @@ namespace WindowsFormsApp1
         
         private void button1_Click(object sender, EventArgs e)
         {
-
-            // Todo esto se resueve con un :
             // Si esta todo ok, i tiene el valor entero y devuleve true, si no, devuelve false.
             int i = 0;
             bool result = int.TryParse(this.edadTextbox.Text, out i);
@@ -50,11 +48,25 @@ namespace WindowsFormsApp1
 
         private void botonBorrar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.idTextBox.Text)) {
-                Console.WriteLine("Todo bien");
-
+            int id = 0;
+            if (!string.IsNullOrWhiteSpace(this.idTextBox.Text))
+            {
+                bool res = int.TryParse(this.idTextBox.Text, out id);
+                if (res == true)
+                {
+                    int delete = this.personasTableAdapter.Delete(id, this.nameTextbox.Text, this.apellidoTextbox.Text, int.Parse(this.edadTextbox.Text));
+                    if (delete == 0)
+                    {
+                        MessageBox.Show("Alguno de los datos no es correcto, verifique los datos y el ID e intente nuevamente.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    this.personasTableAdapter.Fill(this.database1DataSet.Personas);
+                }
             }
-         Console.WriteLine("El id no es numerico o no existe");
+            else
+            {
+                MessageBox.Show("El id es nulo, inserte uno e intente nuevamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         /*
 private void botonBorrar_Click(object sender, EventArgs e)

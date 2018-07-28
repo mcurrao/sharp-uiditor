@@ -37,20 +37,11 @@ namespace WindowsFormsApp1
             // Si esta todo ok, i tiene el valor entero y devuleve true, si no, devuelve false.
             int i = 0;
             bool result = int.TryParse(this.edadTextbox.Text, out i);
-            /*
-            // No me esta andando, pero deberia tirar un cartel si no era un numero
-            try
+            if (result == false)
             {
-                // Intenta hacer de cuenta que era un numero
-                int.Parse(this.edadTextbox.Text);
-            }
-            catch {
-                // Avisa con un mensaje
                 MessageBox.Show("BOLUDO", "La edad tiene que ser un número! JEROPARDI!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                // Sale del metodo sin devolver nada, porque el metodo es void
+            }
                 return;
-            }*/
-
             // Agrega una fila nueva a la base
             this.personasTableAdapter.Insert(this.nameTextbox.Text, this.apellidoTextbox.Text, int.Parse(this.edadTextbox.Text));
             // Actualiza la tabla que se ve con lo que esta en la base

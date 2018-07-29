@@ -37,7 +37,7 @@ namespace WindowsFormsApp1
             bool result = int.TryParse(this.edadTextbox.Text, out i);
             if (result == false)
             {
-                MessageBox.Show("BOLUDO", "La edad tiene que ser un número! JEROPARDI!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("La edad debe ser numerica", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             // Agrega una fila nueva a la base
@@ -46,20 +46,28 @@ namespace WindowsFormsApp1
             this.personasTableAdapter.Fill(this.database1DataSet.Personas);
         }
 
+        /**
+         * Hay que ingresar todos los valores en los inputs (O se cargan automáticamente al hacer click en la tabla) 
+         * Y luego apretar borrar, eso llama a esta funcion
+         */
         private void botonBorrar_Click(object sender, EventArgs e)
         {
             int id = 0;
+            // Si el id es null, tira error, si no, valida lo demas
             if (!string.IsNullOrWhiteSpace(this.idTextBox.Text))
             {
                 bool res = int.TryParse(this.idTextBox.Text, out id);
                 if (res == true)
                 {
+                    // Acá borra el registro, si todo está bien, devuelve un 1, si no, un 0.
                     int delete = this.personasTableAdapter.Delete(id, this.nameTextbox.Text, this.apellidoTextbox.Text, int.Parse(this.edadTextbox.Text));
+                    // Si devolvió un 0, es que hubo error, entonces muestra el error.
                     if (delete == 0)
                     {
                         MessageBox.Show("Alguno de los datos no es correcto, verifique los datos y el ID e intente nuevamente.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    // Si no hubo error, refresca la tabla.
                     this.personasTableAdapter.Fill(this.database1DataSet.Personas);
                 }
             }

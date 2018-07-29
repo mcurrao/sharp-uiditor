@@ -153,6 +153,7 @@
             // 
             // idTextBox
             // 
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personasBindingSource, "Id", true));
             this.idTextBox.Location = new System.Drawing.Point(531, 448);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(100, 20);
